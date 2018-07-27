@@ -1,9 +1,9 @@
 This is a sample locustio script for mac
 
 ## Requirements
-Python
-Locustio
-Virtualenv
+	Python
+	Locustio
+	Virtualenv
 
 ## Installing python
 ```
@@ -38,7 +38,7 @@ sudo nano ~/.bash_profile
 alias venvpy2.7="source /[env directory]/bin/activate"
 //Ctrl+O to save
 //Ctrl+X to exit
-source ~/.bash_profile //to activate your updated *bash_profile*
+source ~/.bash_profile //to activate your updated bash_profile
 
-`venvpy2.7` will automatically activate your virtual environment
+venvpy2.7 [in terminal] will automatically activate your virtual environment
 ```
