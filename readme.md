@@ -38,8 +38,6 @@ sudo nano ~/.bash_profile
 alias venvpy2.7="source /[env directory]/bin/activate"
 `Ctrl+O` to save
 `Ctrl+X` to exit
-
-
 source ~/.bash_profile
 
 `venvpy2.7` will automatically activate your virtual environment
