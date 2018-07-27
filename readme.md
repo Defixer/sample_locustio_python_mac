@@ -5,14 +5,14 @@ This is a sample locustio script for mac
 	*Locustio
 	*Virtualenv
 
-## Creating virtual environment
-```
-python -m virtual env
-```
-
 ## Installing python
 ```
 brew install python
+```
+
+## Creating virtual environment
+```
+python -m virtual env
 ```
 
 ## Installing Locustio
