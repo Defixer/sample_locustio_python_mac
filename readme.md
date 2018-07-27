@@ -33,8 +33,9 @@ pip install locustio
 see [Locustio Installation](https://docs.locust.io/en/stable/installation.html)
 
 ## Running script
-`locust` //
-	In web browser 
+`locust` 
+
+_In web browser_
 
 _localhost:8090_ is the GUI of locust: input the number of user as well as number of users per second and start swarming
 
