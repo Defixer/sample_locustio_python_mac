@@ -1,9 +1,9 @@
 This is a sample locustio script for mac
 
 ## Requirements
-	* Python
-	* Locustio
-	* Virtualenv
+* Python
+* Locustio
+* Virtualenv
 
 ## Installing python
 ```
@@ -36,8 +36,8 @@ see [Locustio Installation](https://docs.locust.io/en/stable/installation.html)
 `locust` //
 	In web browser 
 
-	_localhost:8090_ is the GUI of locust: input the number of user as well as number of users per second and start 
-	
+_localhost:8090_ is the GUI of locust: input the number of user as well as number of users per second and start swarming
+
 `locust --no-web -c 1 -r 1 --print-stats` //disables GUI and purely outputs in _terminal_
 
 ##### Adding aliases
