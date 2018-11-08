@@ -1,7 +1,7 @@
 This is a sample `LocustIO` script [MAC]
 
 ## Requirements
-* Python 3.7 or later
+* Python 2.7 or later
 * LocustIO
 * Virtualenv
 
@@ -27,13 +27,12 @@ $ deactivate
 ```
 
 ##### Adding aliases
-`$ sudo nano ~/.bash_profile`
-`$ alias venvpy2.7="source /[env directory]/bin/activate"`
-`Ctrl+O` to save
-`Ctrl+X` to exit
-$ source ~/.bash_profile //to activate your updated bash_profile  
-`$ venvpy2.7` [in terminal] will automatically activate your virtual environment
-
+`$ sudo nano ~/.bash_profile`  
+`$ alias venvpy2.7="source /[env directory]/bin/activate"`  
+`Ctrl+O` to save  
+`Ctrl+X` to exit  
+`$ source ~/.bash_profile` #to activate your updated bash_profile  
+`$ venvpy2.7` #[in terminal] will automatically activate your virtual environment  
 
 ## Installing Locustio
 ```
@@ -47,6 +46,6 @@ see [Locustio Installation](https://docs.locust.io/en/stable/installation.html)
 
 _In web browser_
 
-`localhost:8089` is the locust web GUI: input the number of user as well as number of users per second and start swarming
+`localhost:8089` is the locust web GUI: input the number of user as well as number of users per second and start swarming  
 
-`$ locust --no-web -c 1 -r 1 --print-stats` #disables GUI and purely outputs in _terminal_
+`$ locust --no-web -c 1 -r 1 --print-stats` #disables GUI and purely outputs in _terminal_  
