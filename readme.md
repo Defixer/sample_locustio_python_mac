@@ -18,7 +18,9 @@ $ sudo easy_install pip
 ## Creating virtual environment
 ```
 $ python -m virtual env
-```
+```  
+_it will create a virtual environment with your current python installed; if it's `Python 3.7` it will already have `pip` as well_  
+_it will be created to the current directory that terminal is in_  
 
 ## Activating/Deactivating virtual environment
 ```
@@ -28,18 +30,19 @@ $ deactivate
 
 ##### Adding aliases
 `$ sudo nano ~/.bash_profile`  
-`$ alias venvpy2.7="source /[env directory]/bin/activate"`  
+`$ alias venvpy2.7="source /[virtual_env_directory]/bin/activate"`  
 `Ctrl+O` to save  
 `Ctrl+X` to exit  
-`$ source ~/.bash_profile` #to activate your updated bash_profile  
+`$ source ~/.bash_profile` #to activate your updated `bash_profile`  
 `$ venvpy2.7` #[in terminal] will automatically activate your virtual environment  
+`(venvpy2.7) $` #virtual environment name should be included in the prompt when it is activated
 
 ## Installing Locustio
 ```
 $ pip install locustio
 ``` 
 see [Locustio Installation](https://docs.locust.io/en/stable/installation.html)
-//use python 2.7 or python 3.6. Incompatible with Python 3.7 as of July 2018
+//use Python 2.7 or Python 3.6. Incompatible with Python 3.7 as of July 2018
 
 ## Running script
 `$ locust` 
