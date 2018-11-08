@@ -41,8 +41,8 @@ $ deactivate
 ```
 $ pip install locustio
 ``` 
-see [Locustio Installation](https://docs.locust.io/en/stable/installation.html)
-//use Python 2.7 or Python 3.6. Incompatible with Python 3.7 as of July 2018
+see [Locustio Installation](https://docs.locust.io/en/stable/installation.html)  
+#use Python 2.7 or Python 3.6. Incompatible with Python 3.7 as of July 2018
 
 ## Running script
 `$ locust` 
