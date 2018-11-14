@@ -25,7 +25,7 @@ class UserBehavior(TaskSet):
 		response = self.client.post("/rest/v10/oauth2/token", data=json.dumps(payload), headers=headers, catch_response=True)
 		self.token = response.json()["access_token"]
 
-	# @task(1)
+	# @task(1) #n in all @task(n) is the ratio of how each function will run in the given swarm	
 	# def index(self):
 	# 	headers = {'oauth-token': self.token}
 	# 	self.client.get("/", headers=headers)
