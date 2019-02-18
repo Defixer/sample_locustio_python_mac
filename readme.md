@@ -26,6 +26,7 @@ $ python3.5 -m venv venvpy3.5 //virtual environment for python3.5
 `<env>` - name of the virtual environment to be created  
 _it will create a virtual environment with your current python installed; if it's `Python 3.7` it will already have `pip` as well_  
 _it will be created to the current directory that terminal is in_  
+_use as reference https://amaral.northwestern.edu/resources/guides/pyenv-tutorial_
 
 ## Activating/Deactivating virtual environment
 ```
