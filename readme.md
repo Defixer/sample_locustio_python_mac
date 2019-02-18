@@ -2,7 +2,7 @@ This is a sample `LocustIO` script [MAC]
 
 ## Requirements
 * Homebrew
-* Python 2.7, 3.5, 3.6
+* Python 2.7, 3.5 or 3.6
 * Pip
 * Virtualenv 
 * LocustIO 
