@@ -22,8 +22,8 @@ $ <python> -m venv <env>
 $ python3 -m venv venvpy3.7 //virtual environment for latest python3 (v3.7 as of this posting)
 $ python3.5 -m venv venvpy3.5 //virtual environment for python3.5
 ```  
-`<python>` - select which python version you would want to have for your virtual environment
-`<env>` - name of the virtual environment to be created
+`<python>` - select which python version you would want to have for your virtual environment  
+`<env>` - name of the virtual environment to be created  
 _it will create a virtual environment with your current python installed; if it's `Python 3.7` it will already have `pip` as well_  
 _it will be created to the current directory that terminal is in_  
 
