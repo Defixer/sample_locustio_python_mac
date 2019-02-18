@@ -45,9 +45,6 @@ $ pyenv global 3.x.x
 $ mkdir ~/.virtual_envs
 $ cd ~/.virtual_envs
 $ pyenv virtualenv 3.x.x <environment_name>
-
-// Activating Virtual Environments
-$ pyenv activate <virtual environment directory>
 ```  
 
 _it will create a virtual environment with your current python installed; if it's `Python 3.7` it will already have `pip` as well_  
@@ -58,6 +55,10 @@ _reference: https://amaral.northwestern.edu/resources/guides/pyenv-tutorial_
 ```
 $ source /[env directory]/bin/activate
 $ deactivate
+
+//Using Pyenv
+$ pyenv activate <virtual environment directory>
+$ source deactivate
 ```
 
 ##### Adding aliases
