@@ -61,13 +61,20 @@ $ deactivate
 ```
 
 ##### Adding aliases
-`$ sudo nano ~/.bash_profile`  
-`$ alias venvpy3.6="source /[virtual_env_directory]/bin/activate"`  
-`Ctrl+O` to save  
-`Ctrl+X` to exit  
-`$ source ~/.bash_profile` #to activate your updated `bash_profile`  
-`$ venvpy3.6` #[in terminal] will automatically activate your virtual environment  
-`(venvpy3.6) $` #virtual environment name should be included in the prompt when it is activated
+```
+$ sudo nano ~/.bash_profile  
+$ alias venvpy3.6up="source /[virtual_env_directory]/bin/activate"  
+Ctrl+O //to save  
+Ctrl+X //to exit  
+
+//Activate updated bash_profile
+$ source ~/.bash_profile  
+$ venvpy3.6up //[in terminal] will automatically activate your virtual environment  
+(venvpy3.6) $ //virtual environment name should be included in the prompt when it is activated
+
+//Using Pyenv  
+$ alias venvpy3.6up="pyenv activate venvpy3.6"  
+```
 
 ## Installing Locustio
 ```
