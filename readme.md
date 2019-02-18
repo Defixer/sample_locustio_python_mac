@@ -52,6 +52,7 @@ $ pyenv activate <virtual environment directory>
 
 _it will create a virtual environment with your current python installed; if it's `Python 3.7` it will already have `pip` as well_  
 _it will be created to the current directory that terminal is in_  
+_reference: https://amaral.northwestern.edu/resources/guides/pyenv-tutorial_
 
 ## Activating/Deactivating virtual environment
 ```
