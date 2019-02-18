@@ -1,9 +1,16 @@
 This is a sample `LocustIO` script [MAC]
 
 ## Requirements
-* Python 2.7 or later
-* LocustIO
-* Virtualenv
+* Homebrew
+* Python 2.7, 3.5, 3.6
+* Pip
+* Virtualenv 
+* LocustIO 
+
+## Installing Homebrew
+```
+$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
 
 ## Installing python
 ```
@@ -15,18 +22,36 @@ $ brew install python
 $ sudo easy_install pip
 ```
 
-## Creating virtual environment
+## Installing Pyenv via
 ```
-$ <python> -m venv <env>
+$ brew install pyenv
+```
 
-$ python3 -m venv venvpy3.7 //virtual environment for latest python3 (v3.7 as of this posting)
-$ python3.5 -m venv venvpy3.5 //virtual environment for python3.5
+## Installing specific python versions
+```
+$ pyenv install 3.x.x
+```
+`3.x.x` - x's represents the version number
+
+## Using Pyenv
+```
+//Lists all python installed
+$ pyenv versions
+
+//Switches the current python version to be used
+$ pyenv global 3.x.x
+
+//Creating virtual environment
+$ mkdir ~/.virtual_envs
+$ cd ~/.virtual_envs
+$ pyenv virtualenv 3.x.x <environment_name>
+
+// Activating Virtual Environments
+$ pyenv activate <virtual environment directory>
 ```  
-`<python>` - select which python version you would want to have for your virtual environment  
-`<env>` - name of the virtual environment to be created  
+
 _it will create a virtual environment with your current python installed; if it's `Python 3.7` it will already have `pip` as well_  
 _it will be created to the current directory that terminal is in_  
-_use as reference https://amaral.northwestern.edu/resources/guides/pyenv-tutorial_
 
 ## Activating/Deactivating virtual environment
 ```
@@ -36,19 +61,19 @@ $ deactivate
 
 ##### Adding aliases
 `$ sudo nano ~/.bash_profile`  
-`$ alias venvpy2.7="source /[virtual_env_directory]/bin/activate"`  
+`$ alias venvpy3.6="source /[virtual_env_directory]/bin/activate"`  
 `Ctrl+O` to save  
 `Ctrl+X` to exit  
 `$ source ~/.bash_profile` #to activate your updated `bash_profile`  
-`$ venvpy2.7` #[in terminal] will automatically activate your virtual environment  
-`(venvpy2.7) $` #virtual environment name should be included in the prompt when it is activated
+`$ venvpy3.6` #[in terminal] will automatically activate your virtual environment  
+`(venvpy3.6) $` #virtual environment name should be included in the prompt when it is activated
 
 ## Installing Locustio
 ```
 $ pip install locustio
 ``` 
 see [Locustio Installation](https://docs.locust.io/en/stable/installation.html)  
-#use Python 2.7 or Python 3.6. Incompatible with Python 3.7 as of July 2018
+#use Python 2.7, 3.5 or 3.6. Incompatible with Python 3.7 as of February 2019
 
 ## Running script
 `$ locust` 
