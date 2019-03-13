@@ -11,7 +11,8 @@ def get_request_template(module, user_id, action):
 			"last_name": None,
 			"company": None,
 			"job_title": None,
-			"email_address": [],
+			"email_address": None,
+			"phone": None,
 			"address" : {
 				"street": None,
 		        "unit": None,
@@ -25,9 +26,11 @@ def get_request_template(module, user_id, action):
 		}
 	elif module == CUSTOMERS:
 		template = {
-			# "user_id": user_id,
-			"email_address": [],
+			"first_name": None,
+			"last_name": None,
+			"company": None,
 			"name": None,
+			"email_address": None,			
 			"address" : {
 				"street": None,
 		        "unit": None,
@@ -36,10 +39,15 @@ def get_request_template(module, user_id, action):
 		        "state": None,
 		        "country": None,
 		        "zip": None
-			}
+			},
+			"phone": None
 		}
 	elif module == SITES:
 		template = {
+			"first_name": None,
+			"last_name": None,
+			"company": None,
+			"customer_id": "",
 			"address" : {
 				"street": None,
 		        "unit": None,
@@ -50,13 +58,15 @@ def get_request_template(module, user_id, action):
 		        "zip": None
 			},
 			"tenant": None,
-			"email_address": []
+			"email_address": None
 		}
 	elif module == CONTACTS:
 		template = {
 			"first_name": None,
 			"last_name": None,
-			"email_address": [],
+			"company": None,
+			"email_address": None,
+			"phone": None,
 			"address" : {
 				"street": None,
 		        "unit": None,
@@ -70,9 +80,9 @@ def get_request_template(module, user_id, action):
 		}
 	elif module == OPPORTUNITIES:
 		template = {
-			"customer_id": "",
-			"site_id": "",
-			"contact_id": "",
+			"customer_id": None,
+			"site_id": None,
+			"contact_id": None,
 			"amount": None,
 			"status": "prospecting",
 			"forecast_close_date": None,
@@ -81,8 +91,8 @@ def get_request_template(module, user_id, action):
 		}
 	elif module == JOBS:
 		template = {
-			"customer_id": "",
-			"site_id": "",
+			"customer_id": None,
+			"site_id": None,
 			"priority": None,
 			"type": None,
 			"due_date": None,
@@ -100,13 +110,16 @@ def get_request_template(module, user_id, action):
 		        "zip": None
 			},
 			"review_required": None,
+			"review_complete": None,
+			"date_completed": None,
 			"job_summary": None,
 			"internal_notes": None
 		}
 	elif module == ASSETS:
 		template = {
-			"site_id": "",
+			"site_id": None,
 			"serial_number": None,
+			"asset_type_id": None,
 			"attributes": None,
 			"level": None,
 			"location": None,
@@ -115,10 +128,10 @@ def get_request_template(module, user_id, action):
 		}
 	elif module == CUSTOMER_INVOICES:
 		template = {
-			"customer_id": "",
-			"site_id": "",
-			"job_id": "",
-			"contact_id": "",
+			"customer_id": None,
+			"site_id": None,
+			"job_id": None,
+			"contact_id": None,
 			"invoice_summary": None,
 			"date_invoice": None,
 			"date_due": None,
@@ -136,9 +149,9 @@ def get_request_template(module, user_id, action):
 		}
 	elif module == SUPPLIER_INVOICES:
 		template = {
-			"purchase_order_id": "",
-			"supplier_id": "",
-			"contact_id": "",
+			"purchase_order_id": None,
+			"customer_id": None,
+			"contact_id": None,
 			"invoice_date": None,
 			"invoice_due": None,
 			"lines": None
@@ -149,6 +162,7 @@ def get_request_template(module, user_id, action):
     		"quantity": None,
     		"unit_amount": None,
     		"account_code": None,
+    		"tax_code": "INPUT",
     		"discount_rate": None,
     		"department_id": "GUID"
 		}
