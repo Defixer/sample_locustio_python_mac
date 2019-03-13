@@ -91,4 +91,4 @@ _In web browser_
 
 `localhost:8089` is the locust web GUI: input the number of user as well as number of users per second and start swarming  
 
-`$ locust --no-web -c 1 -r 1 --print-stats` #disables GUI and purely outputs in _terminal_  
+`$ locust -f [locust_filename] --no-web -c 1 -r 1 --print-stats` #disables GUI and purely outputs in _terminal_  
