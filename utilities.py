@@ -8,7 +8,7 @@ import random
 import json
 import pandas as pd
 from constants import FETCH, CREATE, UPSERT, UPSERT_INSERT, UPSERT_UPDATE, UPDATE, SEARCH, REQUEST, RESPONSE, FM_DN
-from constants import LEADS, CUSTOMERS, SITES, CONTACTS, OPPORTUNITIES, JOBS, ASSETS, CUSTOMER_INVOICES, PURCHASE_ORDERS, SUPPLIER_INVOICES, EVENTS, TASKS, NOTES, LINES_DESCRIPTION, PLACEHOLDER_HEART, PLACEHOLDER_HEAVEN, PLACEHOLDER_HOLD
+from constants import LEADS, CUSTOMERS, SITES, CONTACTS, OPPORTUNITIES, JOBS, ASSETS, CUSTOMER_INVOICES, PURCHASE_ORDERS, SUPPLIER_INVOICES, EVENTS, TASKS, NOTES, LINES_DESCRIPTION, PLACEHOLDER_HEART, PLACEHOLDER_HEAVEN, PLACEHOLDER_HOLD, TAX_CODES, ACCOUNT_CODES
 from data_model import get_request_template
 import os
 import sys
@@ -145,21 +145,29 @@ def create_update_request(module, action, instance):
 
 def process_update(ids, up_id, module, action, df, instance):
 	request = []
-	instance.log.info("action: {}".format(action))
 	record_id = random.choice(ids)
 	raw_body = get_request_template(module, instance.user_id, action)
 	number_of_items = len(raw_body)
 	while number_of_items > 2:
-		raw_body.pop(random.choice(raw_body.keys()))
+		field_name = random.choice(list(raw_body.keys()))
+		print(field_name)
+		if is_independent_field(module, field_name):
+			raw_body.pop(field_name)
 		number_of_items = number_of_items - 1
 	raw_body = traverse_dict(raw_body, module, action, instance)
 	raw_body[up_id] = record_id
 	request.append(raw_body)
+
 	'''
 		just to check what have been updated
 	'''
 	show_updates(up_id, record_id, raw_body, request, df, instance) 
 	return request
+
+def is_independent_field(module, field_name):
+	if field_name == 'name' and module in [TAX_CODES, ACCOUNT_CODES]:
+		return False
+	return True
 
 def show_updates(up_id, record_id, raw_body, request, api_data_df, instance):
 	field_list = [x for x in raw_body]
@@ -185,7 +193,7 @@ def set_search_endpoint(module, action, instance):
 	field_name = None
 	while (field_name is None) or (field_name == "notes") or (field_name == "address"): #try-catch 'notes' and 'address' for a while
 		try:
-			field_name = random.choice(raw_body.keys())	
+			field_name = random.choice(list(raw_body.keys()))
 		except:
 			pass
 		
@@ -341,11 +349,16 @@ def get_record_id(module, instance):
 	record = random.choice(records)
 	return record['id']
 
+def get_tax_code_name(header, test_data_file, instance):
+	data_df = pd.read_csv(test_data_file)
+	tax_code_name = get_random_data(header, data_df, instance)
+	return tax_code_name
+
 def get_test_data(d, field_name, field_value, module, action, instance):
 	data = field_value
 	date_formats = get_date_formats()	
 	global test_data_file
-	if field_name in ['first_name', 'last_name', 'company', 'name']:				
+	if field_name in ['first_name', 'last_name', 'company']:				
 		data = get_name(field_name.upper(), test_data_file, instance)
 		if 'company' in d:
 			if 'name' in d:
@@ -437,28 +450,25 @@ def get_test_data(d, field_name, field_value, module, action, instance):
 		if module == ASSETS:
 			data = "pass"
 	elif (field_name == "external_id") and (UPSERT in action) and (field_value == None):
-		# data = ''.join(random.choice(string.ascii_lowercase + string.digits) for _ in range(32)) #creates a random 32-alphanumeric character
 		data = str(uuid.uuid4()) #generates random UUID
+	elif field_name == 'name':
+		if module == CUSTOMERS:
+			data = get_name(field_name.upper(), test_data_file, instance)
+			if 'company' in d:
+				if 'name' in d:
+					d['name'] = d['company']
+		elif module in [TAX_CODES, ACCOUNT_CODES]:
+			header = module.split("_")[1]
+			data = get_tax_code_name(header, test_data_file, instance)
+	elif field_name == 'code':
+		if 'name' in d:
+			tax_code_name = d['name'].split(" ")
+			data = ""
+			for initial in tax_code_name:
+				abbrev = initial[0]
+				if abbrev.isalpha() and abbrev.isupper(): 
+					data += abbrev
+			data += str(rand_num(6,'padded','d')) #picks number between 100000-999999
+	elif field_name == 'rate':
+		data = str(rand_num(2,'!padded','d')) #picks number between 1-99
 	return data
-
-# def validate_upsert_fields(data, module, action, instance):
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

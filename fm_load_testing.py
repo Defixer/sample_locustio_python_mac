@@ -5,7 +5,7 @@ import random
 import csv
 import utilities
 from constants import FETCH, CREATE, UPDATE, UPSERT, UPSERT_INSERT, UPSERT_UPDATE, SEARCH, REQUEST, RESPONSE, FM_DN
-from constants import LEADS, CUSTOMERS, SITES, CONTACTS, OPPORTUNITIES, JOBS, ASSETS, CUSTOMER_INVOICES, PURCHASE_ORDERS, SUPPLIER_INVOICES, EVENTS, TASKS, NOTES
+from constants import LEADS, CUSTOMERS, SITES, CONTACTS, OPPORTUNITIES, JOBS, ASSETS, CUSTOMER_INVOICES, PURCHASE_ORDERS, SUPPLIER_INVOICES, EVENTS, TASKS, NOTES, TAX_CODES, ACCOUNT_CODES
 from utilities import prettify
 import pandas as pd
 import time
@@ -119,6 +119,22 @@ class FM_load_testing(TaskSet):
 	# 	except:
 	# 		utilities.get_error_message(self)
 
+	# @task(1)
+	# def fetch_tax_codes(self):
+	# 	try :			
+	# 		data = utilities.fetch(TAX_CODES, FETCH, self)
+	# 		utilities.log_req_res(data, self)
+	# 	except:
+	# 		utilities.get_error_message(self)
+
+	# @task(1)
+	# def fetch_account_codes(self):
+	# 	try:
+	# 		data = utilities.fetch(ACCOUNT_CODES, FETCH, self)
+	# 		utilities.log_req_res(data, self)
+	# 	except:
+	# 		utilities.get_error_message(self)
+
 	# CREATE	
 	# @task(1) #@task(n) where n is the ratio of how each function will run in the given swarm	
 	# def create_leads(self):
@@ -196,6 +212,22 @@ class FM_load_testing(TaskSet):
 	# def create_supplier_invoices(self):
 	# 	try :			
 	# 		data = utilities.create(SUPPLIER_INVOICES, CREATE, self)
+	# 		utilities.log_req_res(data, self)
+	# 	except:
+	# 		utilities.get_error_message(self)
+
+	# @task(1)	
+	# def create_tax_codes(self):
+	# 	try :			
+	# 		data = utilities.create(TAX_CODES, CREATE, self)
+	# 		utilities.log_req_res(data, self)
+	# 	except:
+	# 		utilities.get_error_message(self)
+
+	# @task(1)	
+	# def create_account_codes(self):
+	# 	try :			
+	# 		data = utilities.create(ACCOUNT_CODES, CREATE, self)
 	# 		utilities.log_req_res(data, self)
 	# 	except:
 	# 		utilities.get_error_message(self)
@@ -280,6 +312,22 @@ class FM_load_testing(TaskSet):
 	# 		utilities.log_req_res(data, self)
 	# 	except:
 	# 		utilities.get_error_message(self)
+
+	# @task(1)	
+	# def update_tax_codes(self):
+	# 	try :			
+	# 		data = utilities.update(TAX_CODES, UPDATE, self)
+	# 		utilities.log_req_res(data, self)
+	# 	except:
+	# 		utilities.get_error_message(self)
+
+	@task(1)	
+	def update_account_codes(self):
+		try :			
+			data = utilities.update(ACCOUNT_CODES, UPDATE, self)
+			utilities.log_req_res(data, self)
+		except:
+			utilities.get_error_message(self)
 	
 	# # SEARCH
 	# @task(1)	

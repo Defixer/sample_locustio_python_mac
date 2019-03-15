@@ -1,4 +1,4 @@
-from constants import LEADS, CUSTOMERS, SITES, CONTACTS, OPPORTUNITIES, JOBS, ASSETS, CUSTOMER_INVOICES, PURCHASE_ORDERS, SUPPLIER_INVOICES, EVENTS, TASKS, NOTES, PLACEHOLDER_HEART, PLACEHOLDER_HEAVEN, PLACEHOLDER_HOLD
+from constants import LEADS, CUSTOMERS, SITES, CONTACTS, OPPORTUNITIES, JOBS, ASSETS, CUSTOMER_INVOICES, PURCHASE_ORDERS, SUPPLIER_INVOICES, EVENTS, TASKS, NOTES, PLACEHOLDER_HEART, PLACEHOLDER_HEAVEN, PLACEHOLDER_HOLD, TAX_CODES, ACCOUNT_CODES
 from constants import UPSERT
 
 def get_request_template(module, user_id, action):
@@ -170,6 +170,17 @@ def get_request_template(module, user_id, action):
 			template['tax_code'] = "OUTPUT"
 		elif ('PO' in module) or ('SI' in module):
 			template['tax_code'] = "INPUT"
+	elif module == TAX_CODES:
+		template = {
+			"name": None,
+			"code": None,
+			"rate": None
+		}
+	elif module == ACCOUNT_CODES:
+		template = {
+			"name": None,
+			"code": None
+		}
 # 	elif module == constants.ACTIVITIES:
 # 		mintemplate = {
 # 			"module_id": None,
@@ -186,6 +197,10 @@ def get_request_template(module, user_id, action):
 # 				"activity_date": None,
 # 			}
 # 			template.update(mintemplate)
+	# elif module == ACCOUNT_CODES:
+	# 	template = {
+
+	# 	}
 	if UPSERT in action:
 		template['external_id'] = None
 	return template

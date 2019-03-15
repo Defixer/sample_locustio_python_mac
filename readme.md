@@ -57,7 +57,7 @@ $ source /[env directory]/bin/activate
 $ deactivate
 
 //Using Pyenv
-$ pyenv activate <virtual environment directory>
+$ pyenv activate <virtual environment name>
 $ source deactivate
 ```
 
